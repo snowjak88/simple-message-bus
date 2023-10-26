@@ -18,7 +18,8 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
           source-url: https://api.nuget.org/v3/index.json
-          api-key: ${{ secrets.NUGETAUTHTOKEN }}
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGETAUTHTOKEN }}
       - name: Install dependencies
         run: dotnet restore
       - name: Build solution
