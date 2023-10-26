@@ -3,16 +3,29 @@ name: Publish to Nuget.org
 on:
   push:
     tags:
-      - "[0-9]+.[0-9]+.[0-9]+"
+      - v[0-9]+.[0-9]+.[0-9]+
 
 jobs:
-  build_solution:
-    name: Build .NET Solution
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '6.0.x', '7.0.x' ]
     steps:
-      - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v3.2.0
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGETAUTHTOKEN }}
+      - uses: actions/checkout@v4
+      - name: Setup dotnet ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
         with:
+          dotnet-version: ${{ matrix.dotnet-version }}
           source-url: https://api.nuget.org/v3/index.json
+          api-key: ${{ secrets.NUGETAUTHTOKEN }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build solution
+        run: dotnet build -c Release
+      - name: Run tests
+        run: dotnet test
+      - name: Build packages
+        run: dotnet pack -c Release
+      - name: Publish Nuget packages
+        run: dotnet nuget push SimpleMessageBus/bin/Release/SimpleMessageBus.*.nupkg
