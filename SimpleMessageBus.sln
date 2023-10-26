@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMessageBus", "SimpleMessageBus\SimpleMessageBus.csproj", "{3491F92E-E34C-425B-AADF-81388D738479}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMessageBusTests", "SimpleMessageBusTests\SimpleMessageBusTests.csproj", "{C46739E3-DF1C-4B5C-8655-E86285302B66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{3491F92E-E34C-425B-AADF-81388D738479}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3491F92E-E34C-425B-AADF-81388D738479}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3491F92E-E34C-425B-AADF-81388D738479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46739E3-DF1C-4B5C-8655-E86285302B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46739E3-DF1C-4B5C-8655-E86285302B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46739E3-DF1C-4B5C-8655-E86285302B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46739E3-DF1C-4B5C-8655-E86285302B66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
