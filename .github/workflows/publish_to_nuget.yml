@@ -29,4 +29,4 @@ jobs:
       - name: Build packages
         run: dotnet pack -c Release
       - name: Publish Nuget packages
-        run: dotnet nuget push SimpleMessageBus/bin/Release/SimpleMessageBus.*.nupkg
+        run: dotnet nuget push SimpleMessageBus/bin/Release/SimpleMessageBus.*.nupkg --api-key ${{ secrets.NUGETAUTHTOKEN }}
