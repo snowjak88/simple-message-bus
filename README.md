@@ -26,7 +26,7 @@ public class MyMessage : IMessage { }
 // Messages are delivered synchronously (i.e., on the same
 // thread as the publisher).
 //
-MessageBus.When<MyMessage>()
+MessageBus.Shared.When<MyMessage>()
     .FromAny()
     .Then(m => Console.WriteLine("Received a message!"));
 
@@ -45,7 +45,7 @@ public class SpecificMessage : GeneralMessage { }
 // Subscribe to the shared MessageBus,
 // receiving messages *exactly* of the given type.
 //
-MessageBus.When<GeneralMessage>(AllowSubclasses: false)
+MessageBus.Shared.When<GeneralMessage>(AllowSubclasses: false)
     .FromAny()
     .Then(m => Console.WriteLine("..."));
 
@@ -65,7 +65,7 @@ MessageBus.Shared.Publish(new GeneralMessage());
 //
 public class MyMessage : IMessage { }
 
-MessageBus.When<GeneralMessage>()
+MessageBus.Shared.When<GeneralMessage>()
     .From("my-topic")
     .Then(m => Console.WriteLine("check!"));
 
@@ -108,7 +108,7 @@ public class MyMessage : IPoolableMessage {
     public void Reset() => Value = 0;
 }
 
-MessageBus.When<MyMessage>()
+MessageBus.Shared.When<MyMessage>()
     .FromAny()
     .Then(m => Console.WriteLine($"Value = {m.Value}"));
 
