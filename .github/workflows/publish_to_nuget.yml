@@ -30,7 +30,7 @@ jobs:
         run: dotnet pack -c Release
   publish:
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
