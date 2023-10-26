@@ -1,4 +1,4 @@
-namespace org.tanplan.hivemind.util;
+namespace Snowjak.SimpleMessageBus;
 
 /// <summary>
 /// Describes a message-consumer.

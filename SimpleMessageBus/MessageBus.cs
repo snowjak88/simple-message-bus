@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
 using LocklessQueue.Queues;
 
-namespace org.tanplan.hivemind.util;
+namespace Snowjak.SimpleMessageBus;
 
 /// <summary>
 /// Provides *basic* intra-application pub-sub messaging.
